@@ -1,0 +1,55 @@
+
+<html>
+  <head>
+    <title>Place Autocomplete</title>
+  </head>
+  <body>
+    <!--
+     This loads helper components from the Extended Component Library,
+     https://github.com/googlemaps/extended-component-library.
+    -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/@googlemaps/extended-component-library/0.6.11/index.min.js">
+    </script>
+    <gmpx-api-loader
+        key="INSERT_YOUR_API_KEY"
+        solution-channel="GMP_CCS_autocomplete_v5">
+    </gmpx-api-loader>
+    <gmp-map id="map" center="40.749933,-73.98633" zoom="13" map-id="DEMO_MAP_ID">
+      <div slot="control-block-start-inline-start" class="pac-card" id="pac-card">
+        <div>
+          <div id="title">Autocomplete search</div>
+          <div id="type-selector" class="pac-controls">
+            <input type="radio" name="type" id="changetype-all" checked="checked" />
+            <label for="changetype-all">All</label>
+
+            <input type="radio" name="type" id="changetype-establishment" />
+            <label for="changetype-establishment">Green Field Poultry Farm</label>
+
+            <input type="radio" name="type" id="changetype-address" />
+            <label for="changetype-address">Namulesa</label>
+
+            <input type="radio" name="type" id="changetype-geocode" />
+            <label for="changetype-geocode">geocode</label>
+
+            <input type="radio" name="type" id="changetype-cities" />
+            <label for="changetype-cities">Jinja</label>
+
+            <input type="radio" name="type" id="changetype-regions" />
+            <label for="changetype-regions">Easter</label>
+          </div>
+          <br />
+          <div id="strict-bounds-selector" class="pac-controls">
+            <input type="checkbox" id="use-strict-bounds" value="" />
+            <label for="use-strict-bounds">Restrict to map viewport</label>
+          </div>
+        </div>
+        <gmpx-place-picker id="place-picker" for-map="map"></gmpx-place-picker>
+      </div>
+      <gmp-advanced-marker id="marker"></gmp-advanced-marker>
+    </gmp-map>
+    <div id="infowindow-content">
+      <span id="place-name" class="title" style="font-weight: bold;"></span><br />
+      <span id="place-address"></span>
+    </div>
+  </body>
+</html>
